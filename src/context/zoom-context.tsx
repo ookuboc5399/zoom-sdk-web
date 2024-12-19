@@ -1,16 +1,15 @@
 import React, { createContext, useContext, ReactNode, useEffect, useState } from 'react';
 import ZoomVideo from '@zoom/videosdk';
 import type { ExecutedResult } from '@zoom/videosdk/dist/types/common';
-import type { Stream } from '@zoom/videosdk/dist/types/media';
-import type { RecordingClient } from '@zoom/videosdk/dist/types/recording';
+import { RecordingClient } from '@zoom/videosdk/dist/types/recording';
 
 interface ZoomContextType {
   init: (lang: string, webEndpoint: string, options: any) => ExecutedResult;
   join: (topic: string, signature: string, name: string, password?: string) => ExecutedResult;
   leave: () => ExecutedResult;
-  getMediaStream: () => Stream;
+  getMediaStream: () => any; // Using any temporarily for Stream type
   getSessionInfo: () => any;
-  getRecordingClient: () => RecordingClient | null;
+  getRecordingClient: () => typeof RecordingClient | null;
   isHost: () => boolean;
   on: (event: string, callback: (...args: any[]) => void) => void;
   off: (event: string, callback: (...args: any[]) => void) => void;
