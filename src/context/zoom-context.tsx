@@ -31,13 +31,13 @@ const defaultContext: ZoomContextType = {
   off: () => {}
 };
 
-const ZoomContext = createContext<ZoomContextType>(defaultContext);
+export const ZoomContext = createContext<ZoomContextType>(defaultContext);
 
 interface ZoomProviderProps {
   children: ReactNode;
 }
 
-const ZoomProvider: React.FC<ZoomProviderProps> = ({ children }) => {
+export const ZoomProvider: React.FC<ZoomProviderProps> = ({ children }) => {
   const [client, setClient] = useState(ZoomVideo.createClient());
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const ZoomProvider: React.FC<ZoomProviderProps> = ({ children }) => {
   );
 };
 
-const useZoom = (): ZoomContextType => {
+export const useZoom = (): ZoomContextType => {
   const context = useContext(ZoomContext);
   if (!context) {
     throw new Error('useZoom must be used within a ZoomProvider');
@@ -100,5 +100,4 @@ const useZoom = (): ZoomContextType => {
   return context;
 };
 
-export { ZoomContext, ZoomProvider, useZoom };
 export type { ZoomContextType, ZoomProviderProps };
