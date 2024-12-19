@@ -1,0 +1,30 @@
+.video-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+
+  .video-content {
+    width: 100%;
+    height: calc(100% - 80px);
+    position: relative;
+  }
+
+  .video-feedback-panel {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    z-index: 10;
+  }
+
+  .video-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.8);
+  }
+}

@@ -1,0 +1,42 @@
+.video-footer {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+
+  &__controls {
+    display: flex;
+    gap: 16px;
+  }
+
+  .vc-button {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    transition: all 0.3s;
+
+    &:hover {
+      border-color: #2d8cff;
+      color: #2d8cff;
+    }
+
+    &.recording {
+      border-color: #ff4d4d;
+      color: #ff4d4d;
+
+      &:hover {
+        border-color: #ff3333;
+        color: #ff3333;
+      }
+    }
+
+    &.high-latency {
+      border-color: #ff4d4f;
+      color: #ff4d4f;
+    }
+  }
+}
