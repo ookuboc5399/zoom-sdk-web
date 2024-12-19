@@ -16,6 +16,14 @@ interface MediaContextType {
   processingLatency: number;
   audioError: string | null;
   performanceMetrics: PerformanceMetrics;
+  audio: {
+    muted: boolean;
+    toggleMute: () => void;
+  };
+  video: {
+    muted: boolean;
+    toggleMute: () => void;
+  };
 }
 
 const defaultPerformanceMetrics: PerformanceMetrics = {
@@ -33,7 +41,15 @@ const MediaContext = createContext<MediaContextType>({
   isAudioProcessing: false,
   processingLatency: 0,
   audioError: null,
-  performanceMetrics: defaultPerformanceMetrics
+  performanceMetrics: defaultPerformanceMetrics,
+  audio: {
+    muted: true,
+    toggleMute: () => {}
+  },
+  video: {
+    muted: true,
+    toggleMute: () => {}
+  }
 });
 
 interface MediaProviderProps {
