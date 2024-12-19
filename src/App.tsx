@@ -10,7 +10,7 @@ import VideoSingle from './feature/video/video-single';
 import VideoAttach from './feature/video/video-attach';
 import Preview from './feature/preview/preview';
 import ZoomContext from './context/zoom-context';
-import ZoomMediaContext from './context/media-context';
+import MediaContext from './context/media-context';
 import LoadingLayer from './component/loading-layer';
 import Chat from './feature/chat/chat';
 import Command from './feature/command/command';
@@ -251,7 +251,7 @@ function App(props: AppProps) {
     <div className="App">
       {loading && <LoadingLayer content={loadingText} />}
       {!loading && (
-        <ZoomMediaContext.Provider value={mediaContext}>
+        <MediaContext.Provider value={mediaContext}>
           <Router>
             <Switch>
               <Route
@@ -275,7 +275,7 @@ function App(props: AppProps) {
               <Route path="/preview" component={Preview} />
             </Switch>
           </Router>
-        </ZoomMediaContext.Provider>
+        </MediaContext.Provider>
       )}
     </div>
   );

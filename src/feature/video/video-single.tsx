@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { useContext } from 'react';
-import ZoomMediaContext from '../../context/media-context';
+import { useMedia } from '../../context/media-context';
 import './video.scss';
 
 const VideoSingle: React.FC = () => {
-  const { mediaStream } = useContext(ZoomMediaContext);
+  const { mediaStream } = useMedia();
   const videoRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {

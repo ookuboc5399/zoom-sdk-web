@@ -1,10 +1,9 @@
 import React from 'react';
-import { useContext } from 'react';
-import ZoomMediaContext from '../../context/media-context';
+import { useMedia } from '../../context/media-context';
 import './subsession.scss';
 
 const Subsession: React.FC = () => {
-  const { mediaStream } = useContext(ZoomMediaContext);
+  const { mediaStream } = useMedia();
 
   return (
     <div className="subsession-container">

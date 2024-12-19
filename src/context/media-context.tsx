@@ -24,6 +24,7 @@ interface MediaContextType {
     muted: boolean;
     toggleMute: () => void;
   };
+  mediaStream: any;
 }
 
 const defaultPerformanceMetrics: PerformanceMetrics = {
@@ -49,7 +50,8 @@ const MediaContext = createContext<MediaContextType>({
   video: {
     muted: true,
     toggleMute: () => {}
-  }
+  },
+  mediaStream: null
 });
 
 interface MediaProviderProps {
@@ -65,7 +67,7 @@ const MediaProvider: React.FC<MediaProviderProps> = ({ children, value }) => {
   );
 };
 
-const useMedia = (): MediaContextType => {
+const useMedia = () => {
   const context = useContext(MediaContext);
   if (!context) {
     throw new Error('useMedia must be used within a MediaProvider');
@@ -73,5 +75,5 @@ const useMedia = (): MediaContextType => {
   return context;
 };
 
-export type { PerformanceMetrics, MediaContextType, MediaProviderProps };
 export { MediaContext, MediaProvider, useMedia };
+export type { PerformanceMetrics, MediaContextType, MediaProviderProps };
