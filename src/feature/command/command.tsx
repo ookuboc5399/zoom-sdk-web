@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMedia } from '../../context/media-context';
+import useMedia from '../../context/media-context';
 import './command.scss';
 
 const Command: React.FC = () => {

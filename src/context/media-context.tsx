@@ -37,22 +37,7 @@ const defaultPerformanceMetrics: PerformanceMetrics = {
   }
 };
 
-const MediaContext = createContext<MediaContextType>({
-  audioLevel: 0,
-  isAudioProcessing: false,
-  processingLatency: 0,
-  audioError: null,
-  performanceMetrics: defaultPerformanceMetrics,
-  audio: {
-    muted: true,
-    toggleMute: () => {}
-  },
-  video: {
-    muted: true,
-    toggleMute: () => {}
-  },
-  mediaStream: null
-});
+const MediaContext = createContext<MediaContextType | null>(null);
 
 interface MediaProviderProps {
   children: ReactNode;
@@ -67,13 +52,14 @@ const MediaProvider: React.FC<MediaProviderProps> = ({ children, value }) => {
   );
 };
 
-const useMedia = () => {
+function useMedia(): MediaContextType {
   const context = useContext(MediaContext);
   if (!context) {
     throw new Error('useMedia must be used within a MediaProvider');
   }
   return context;
-};
+}
 
-export { MediaContext, MediaProvider, useMedia };
+export { MediaContext, MediaProvider };
+export default useMedia;
 export type { PerformanceMetrics, MediaContextType, MediaProviderProps };

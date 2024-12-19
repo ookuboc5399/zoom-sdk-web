@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMedia } from '../../context/media-context';
+import useMedia from '../../context/media-context';
 import './subsession.scss';
 
 const Subsession: React.FC = () => {

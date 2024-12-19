@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useMedia } from '../../context/media-context';
+import useMedia from '../../context/media-context';
 import './video.scss';
 
 const VideoAttach: React.FC = () => {
